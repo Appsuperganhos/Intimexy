@@ -1,68 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro - Intimexy</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      background-color: #000; /* Fundo preto */
-      color: #fff; /* Texto branco */
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    .container {
-      padding: 20px;
-    }
-    .logo {
-      width: 150px; /* Ajuste o tamanho conforme necessário */
-      margin-bottom: 20px;
-    }
-    input {
-      display: block;
-      width: 80%;
-      margin: 10px auto;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #ff0000; /* Vermelho */
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background-color: #cc0000; /* Vermelho mais escuro */
-    }
-    a {
-      color: #ff0000;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Intimexy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.js"></script>
+    <script>
+        // Conectar ao Supabase
+        const SUPABASE_URL = "https://hzgxfzrtznefajhtmill.supabase.co";
+        const SUPABASE_KEY = "sua-chave-de-api"; // Substitua pela chave de API correta
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // Função para criar conta no Supabase
+        document.getElementById("signup-form")?.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Cadastro do usuário no Supabase
+            const { user, error } = await supabase.auth.signUp({ email, password });
+
+            if (error) {
+                alert("Erro no cadastro: " + error.message);
+            } else {
+                alert("Cadastro realizado com sucesso! Verifique seu e-mail.");
+                window.location.href = "login.html"; // Redireciona para login após cadastro
+            }
+        });
+    </script>
+    <style>
+        /* Estilos podem ser mantidos do anterior */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        input {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #cc0000;
+        }
+        a {
+            color: #ff0000;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <img src="assets/logo.png" alt="Intimexy Logo" class="logo">
-    <h2>Cadastro</h2>
-    <form id="signup-form">
-      <input type="text" id="name" placeholder="Nome" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Senha" required>
-      <button type="submit" class="btn">Cadastrar</button>
-    </form>
-    <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
-  </div>
-
-  <script src="js/script.js"></script>
+    <div class="container">
+        <img src="assets/logo.png" alt="Intimexy Logo" class="logo">
+        <h2>Cadastro</h2>
+        <form id="signup-form">
+            <input type="text" id="name" placeholder="Nome" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
+    </div>
 </body>
 </html>
