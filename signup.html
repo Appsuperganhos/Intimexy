@@ -5,9 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro - Intimexy</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #000; /* Fundo preto */
+      color: #fff; /* Texto branco */
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .logo {
+      width: 150px; /* Ajuste o tamanho conforme necessário */
+      margin-bottom: 20px;
+    }
+    input {
+      display: block;
+      width: 80%;
+      margin: 10px auto;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #ff0000; /* Vermelho */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #cc0000; /* Vermelho mais escuro */
+    }
+    a {
+      color: #ff0000;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
+    <img src="assets/logo.png" alt="Intimexy Logo" class="logo">
     <h2>Cadastro</h2>
     <form id="signup-form">
       <input type="text" id="name" placeholder="Nome" required>
