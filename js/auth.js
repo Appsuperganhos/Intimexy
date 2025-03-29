@@ -38,3 +38,22 @@ export async function signIn(email, password) {
   console.log('Usuário logado:', user);
   return { success: true, user };
 }
+
+// Cadastro
+document.getElementById("signup-form")?.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const { user, error } = await supabase.auth.signUp({ email, password });
+
+  if (error) {
+    alert("Erro no cadastro: " + error.message);
+  } else {
+    alert("Cadastro realizado com sucesso! Verifique seu e-mail.");
+    // Após o sucesso do cadastro, redireciona para a página de login ou outra página.
+    window.location.href = "login.html"; // Ou pode ser "index.html", ou "home.html"
+  }
+});
+
