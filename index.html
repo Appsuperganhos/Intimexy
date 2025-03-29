@@ -14,12 +14,62 @@
         const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         // Verificar se o usuário já está logado
-        const user = supabase.auth.user();
-        if (user) {
-            // Se o usuário estiver logado, redireciona para o painel
-            window.location.href = "dashboard.html";
-        }
+        window.onload = async () => {
+            const user = await supabase.auth.user();
+            if (user) {
+                // Se o usuário estiver logado, redireciona para o painel
+                window.location.href = "dashboard.html";
+            }
+        };
     </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Fundo preto */
+            color: #fff; /* Texto branco */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #ff0000; /* Destacar com vermelho */
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 25px;
+            background-color: #ff0000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #cc0000; /* Efeito hover */
+        }
+
+        .button:active {
+            background-color: #990000; /* Efeito click */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
