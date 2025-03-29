@@ -1,19 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intimexy - Bem-vindo</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intimexy - Plataforma de Conteúdo Exclusivo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #000; /* Fundo preto */
+      color: #fff; /* Texto branco para contraste */
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .buttons .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #ff0000; /* Vermelho para combinar com o brilho do diamante */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .buttons .btn:hover {
+      background-color: #cc0000; /* Vermelho mais escuro ao passar o mouse */
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bem-vindo ao <span class="highlight">Intimexy</span></h1>
-        <p>Plataforma de conteúdo exclusivo para modelos.</p>
-        <div>
-            <a href="login.html" class="button">Login</a>
-            <a href="signup.html" class="button">Cadastro</a>
-        </div>
+  <div class="container">
+    <header>
+      <img src="assets/logo.png" alt="Intimexy Logo">
+      <h1>Bem-vindo ao Intimexy</h1>
+      <p>Plataforma de conteúdo exclusivo para modelos.</p>
+    </header>
+    
+    <div class="buttons">
+      <a href="login.html" class="btn">Login</a>
+      <a href="signup.html" class="btn">Cadastro</a>
     </div>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
